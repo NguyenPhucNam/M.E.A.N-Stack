@@ -1,0 +1,43 @@
+<app-navigation></app-navigation>
+<app-slider></app-slider>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li *ngFor="let img of detail['Img_Product']; index as i; first as isFirst;" data-target="#carousel" data-slide-to="i" class="{{ (isFirst) ? 'active':'' }}"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div *ngFor="let img of detail['Img_Product']; first as isFirst;" class="carousel-item {{ (isFirst) ? 'active':'' }}">
+                <img class="d-block w-100" src="{{ url+detail['Url_clound']+img }}" alt="{{ detail['Product_Name'] }}">
+              </div>
+            </div>
+            <a class="carousel-control-prev text-dark" href="#carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next text-dark" href="#carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    </div>
+    <div class="col-sm-4">
+      <h1>{{ detail['Product_Name'] }}</h1>
+      <p class="text-primary">{{ detail['Brand'] }}</p>
+      <h3 class="text-danger">{{ detail['Price'] }}</h3>
+      <div class="text-muted input-group mb-3">
+        Số lượng:&nbsp;
+        <div class="input-group-append">
+          <button class="btn btn-success" (click)="myClick(-1)">-</button>  
+        </div>
+        <input [(ngModel)]="numberIndex" class="form-control" value="{{ numberIndex }}"/>
+        <div class="input-group-append">
+          <button class="btn btn-success" (click)="myClick(1)">+</button>  
+        </div>
+      </div>
+      <p>{{ detail['Description'] }}</p>
+    </div>
+  </div>
+</div>

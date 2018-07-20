@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="justify-content-center">
+        <br>
+        <h1>Đăng ký</h1>
+        <form (ngSubmit)="onSubmit(formSignUp);" #formSignUp="ngForm">
+          <div class="form-group">
+            <label for="name">Họ tên:</label>
+            <input type="text" ngModel #txtName="ngModel" name="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="phone">Số điện thoại:</label>
+            <input type="number" ngModel #txtPhone="ngModel" name="phone" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" ngModel #txtEmail="ngModel" name="email"  class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Mật khẩu:</label>
+            <input type="password" ngModel #txtPass="ngModel" name="password" class="form-control">
+          </div>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-primary" [disabled]="formSignUp.invalid">Đăng ký</button>
+            <label>Quay lại <a routerLink="/">Trang chủ</a></label>
+          </div>
+        </form>
+    </div>
+  </div>
