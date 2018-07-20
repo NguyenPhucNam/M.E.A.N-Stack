@@ -46,6 +46,8 @@ router.post("/them-anh", checkAuth.isLogin, upload.array('uploadImg', 6), seller
 
 router.post("/them", checkAuth.isLogin, sellerController.addPage);
 
-router.put("/chinh-sua", checkAuth.isLogin, sellerController.editPage);
+router.get("/chinh-sua/:id", checkAuth.isLogin, sellerController.get_editPage);
+
+router.put("/chinh-sua/:id", checkAuth.isLogin, sellerController.put_editPage);
 
 module.exports = router;

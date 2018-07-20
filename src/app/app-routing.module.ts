@@ -28,7 +28,7 @@ const routesConfig: Routes = [
     { path: "lien-he", component: ContactComponent },
     { path: "kenh-nguoi-ban", component: SellerPageComponent, canActivate: [AuthGuard] },
     { path: "kenh-nguoi-ban/them", component: AddPageComponent, canActivate: [AuthGuard] },
-    { path: "kenh-nguoi-ban/chinh-sua", component: EditPageComponent, canActivate: [AuthGuard] },
+    { path: "kenh-nguoi-ban/chinh-sua/:id", component: EditPageComponent, canActivate: [AuthGuard] },
     { path: "tai-khoan/dang-nhap", component: LoginComponent },
     { path: "tai-khoan/dang-ky", component: SignupComponent },
     { path: "tai-khoan/ho-so/:id", component: HosoComponent, canActivate: [AuthGuard] },

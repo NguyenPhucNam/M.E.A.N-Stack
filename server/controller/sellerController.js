@@ -36,12 +36,34 @@ exports.addPage = (req, res, next) => {
         message: "Success"
     }))
     .catch(err => res.status(500).json({
-        message: err,
-        loi: "Test lỗi"
+        message: err
     }));
 
 }
 
-exports.editPage = (req, res, next) => {
-    res.status(200).json('result');    
+exports.get_editPage = (req, res, next) => {
+    Product.findById(req.params.id)
+    .exec()
+    .then(result => res.status(200).json(result))
+    .catch(err => res.status(500).json({
+        message: err
+    }));
+}
+
+exports.put_editPage = (req, res, next) => {
+    const product = {};
+    product.Product_Name = req.body.name;
+    product.Description = req.body.decription;
+    product.Brand = req.body.brand;
+    product.Price = req.body.price;
+    product.Quantity = req.body.quantity;
+    product.Url_clound = req.body.Url_clound;
+    product.Img_Product = req.body.img_Product;
+    Product.update(req.userData._id, product)
+    .then(result => res.status(201).json({
+        message: "Success"
+    }))
+    .catch(err => res.status(500).json({
+        message: err
+    }));
 }

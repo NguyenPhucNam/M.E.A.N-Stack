@@ -11,7 +11,8 @@ export class addProService {
         const url = "http://localhost:3000/kenh-nguoi-ban/them-anh";
         const headers = new Headers({ 'Authorization': 'Bearer '+localStorage.getItem('token') });
         const formData = new FormData();
-        for(let i=0; i < value.files.length; i++) {
+        const valForm = value.files.length;
+        for(let i=0; i < valForm; i++) {
             formData.append('uploadImg', value.files[i]);
         }
         return this.http.post(url, formData, { headers })
