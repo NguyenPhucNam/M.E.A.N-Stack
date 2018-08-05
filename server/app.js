@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 });
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.MongoLocal, { useNewUrlParser: true })
+mongoose.connect(config.MongoDb, { useNewUrlParser: true })
 .then(() => console.log("Start Database Success"))
 .catch((err, done) => done("Could not connect to DB: " + err));
 

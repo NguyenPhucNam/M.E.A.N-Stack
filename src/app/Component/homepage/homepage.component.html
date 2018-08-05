@@ -15,4 +15,65 @@
       </div>
     </div>
   </div>
+
+  <br>
+  <!-- fix table -->
+  <div class="container">
+    <div class="inner-table d-flex">
+      <div class="col-sm-4 table-row table-1">
+          <div class="table-responsive" id="keo">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let i of objectProducts">
+                  <td>{{i._id}}</td>
+                  <td>{{ i.Product_Name | slice:0:5 }}</td>
+                  <td>{{ i.Description | slice:0:5 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="col-sm-8 table-row table-2">
+          <div class="table-responsive" style="max-height: 317px;" (scroll)="keoxuong($event)">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Age</th>
+                  <th>City</th>
+                  <th>Country</th>
+                  <th>Age</th>
+                  <th>City</th>
+                  <th>Country</th>
+                  <th>VN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let i of objectProducts">
+                  <td>{{i._id}}</td>
+                  <td>{{ i.Product_Name | slice:0:4 }}</td>
+                  <td>{{ i.Description | slice:0:3 }}</td>
+                  <td>{{ i.Product_Name | slice:0:4 }}</td>
+                  <td>{{ i.Product_Name | slice:0:4 }}</td>
+                  <td>{{ i.Img_Product | slice:0:4 }}</td>
+                  <td>{{ i.Product_Name | slice:0:4 }}</td>
+                  <td>{{ i.Product_Name | slice:0:4 }}</td>
+                  <td>{{ i.Img_Product | slice:0:4 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+<br>

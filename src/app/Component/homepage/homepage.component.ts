@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { columnService } from './homepage.service';
+import { $ } from '../../../../node_modules/protractor';
 
 
 @Component({
@@ -20,4 +21,9 @@ export class HomepageComponent implements OnInit {
     .then(apiHome => this.objectProducts = apiHome)
     .catch((err) => {console.log(err)});
   }
+
+  keoxuong(e) {
+    document.getElementById("keo").scrollTop = e.target.scrollTop;
+  }
+
 }
