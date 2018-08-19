@@ -4,7 +4,7 @@ const About = require("../models/aboutModel");
 const Product = require('../models/productsModel');
 
 exports.homePage = (req, res, next) => {
-    Product.find({Enable: true},{__v: 0}).limit(10).sort({Create_at: -1})
+    Product.find({Enable: true},{__v: 0}).sort({Create_at: -1})
     .exec()
     .then(result => {
         result.map(imgEdit => {
@@ -13,6 +13,7 @@ exports.homePage = (req, res, next) => {
             if(imgEdit.Img_Product.length !== position) {
               imgEdit[propImg] = imgEdit.Img_Product.split(",", 1);
             }
+            
             else {
               imgEdit[propImg] = imgEdit.Img_Product;
             }

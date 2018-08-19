@@ -4,13 +4,8 @@ a.thumnail:hover {text-decoration: none; color: red;}
     margin: 0 -15px;
 }
 
-.table-responsive {
-    max-height: 300px;
-}
-
 .table {
     margin-bottom: 0;
-    /* table-layout: fixed; */
 }
 
 #keo {
@@ -18,11 +13,19 @@ a.thumnail:hover {text-decoration: none; color: red;}
 }
 
 .table thead th {
+    position: sticky;
+    top: 0;
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
     background-color: #fff;
     box-shadow: 0 0 black, inset 0 2px 0, 0 1px 0;
-    position: sticky;
+}
+.multiple {
+    position: relative;
+}
+
+.header-table {
+    width: calc(100% - 17px);
+    position: absolute;
     top: 0;
-    z-index: 100;
 }
