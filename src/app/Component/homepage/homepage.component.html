@@ -90,10 +90,10 @@
         </div>
       </div>
 
-      <div *ngIf="enableSticky" class="table-2 table-responsive" style="max-height: 300px;">
+      <div id="DataTableId" *ngIf="enableSticky" class="table-2 table-responsive" style="max-height: 300px;">
         <table class="table table-bordered">
           <thead>
-            <tr class="navbar-fixed-top">
+            <tr class="tr-table">
               <th>Firstname</th>
               <th>Lastname</th>
               <th>Age</th>
@@ -106,20 +106,39 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let i of objectProducts">
-              <td>{{i._id}}</td>
-              <td>{{ i.Product_Name | slice:0:4 }}</td>
-              <td>{{ i.Description | slice:0:3 }}</td>
-              <td>{{ i.Product_Name | slice:0:4 }}</td>
-              <td>{{ i.Product_Name | slice:0:4 }}</td>
-              <td>{{ i.Img_Product | slice:0:4 }}</td>
-              <td>{{ i.Product_Name | slice:0:4 }}</td>
-              <td>{{ i.Product_Name | slice:0:4 }}</td>
-              <td>{{ i.Img_Product | slice:0:4 }}</td>
-            </tr>
+              <tr class="tr-table" *ngFor="let i of this.objectProducts">
+                <td>{{i._id}}</td>
+                <td>{{ i.Product_Name | slice:0:4 }}</td>
+                <td>{{ i.Description | slice:0:3 }}</td>
+                <td>{{ i.Product_Name | slice:0:4 }}</td>
+                <td>{{ i.Product_Name | slice:0:4 }}</td>
+                <td>{{ i.Img_Product | slice:0:4 }}</td>
+                <td>{{ i.Product_Name | slice:0:4 }}</td>
+                <td>{{ i.Product_Name | slice:0:4 }}</td>
+                <td>{{ i.Img_Product | slice:0:4 }}</td>
+              </tr>
+            
+              <tr class="tr-table" *ngFor="let i of mang1000">
+                <td>{{i}}</td>
+                <td>{{ i }}</td>
+                <td>{{ i }}</td>
+                <td>{{ i }}</td>
+                <td>{{ i }}</td>
+                <td>{{ i }}</td>
+                <td>{{ i }}</td>
+                <td>{{ i }}</td>
+                <td>{{ i }}</td>
+              </tr>
+
           </tbody>
         </table>
       </div>
+
+      <iframe id="txtArea1" style="display:none"></iframe>
+
+      <button id="btnExport" class="btn btn-success" (click)="fnExcelReport()"> EXPORT </button>
+
+
     </div>
   </div>
 

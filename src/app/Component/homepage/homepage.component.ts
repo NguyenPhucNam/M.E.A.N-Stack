@@ -16,12 +16,15 @@ export class HomepageComponent implements OnInit {
   frozenCols: any[];
   baColumns: any[];
   enableSticky: boolean;
+  mang1000: any[];
 
   constructor(private columnService: columnService) {}
 
   ngOnInit(): void {
 
     this.matchBrowser();
+
+    this.getArr();
     
     this.columnService.getProducts()
     .then(apiHome => {
@@ -37,6 +40,13 @@ export class HomepageComponent implements OnInit {
     })
     .catch((err) => {console.log(err)});
 
+  }
+
+  getArr() {
+    this.mang1000 = [];
+    for(let i = 0; i < 90000; i++) {
+      this.mang1000.push(i);
+    }
   }
 
   matchBrowser() {
@@ -91,6 +101,47 @@ export class HomepageComponent implements OnInit {
 
   keoxuong(e) {
     document.getElementById("keo").scrollTop = e.target.scrollTop;
+  }
+
+  fnExcelReport()
+  {
+    var tab_text = '<table border="1px" style="font-size:20px" ">';
+    var j = 0;
+    var tab = document.getElementById('DataTableId').getElementsByTagName('tr'); // id of table
+    var lines = tab.length;
+
+    // the first headline of the table
+    if (lines > 0) {
+        tab_text = tab_text + '<tr bgcolor="#DFDFDF">' + tab[0].innerHTML + '</tr>';
+    }
+
+    // table data lines, loop starting from 1
+    for (j = 1 ; j < lines; j++) {     
+        tab_text = tab_text + "<tr>" + tab[j].innerHTML + "</tr>";
+    }
+
+    tab_text = tab_text + "</table>";
+    tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, "");             //remove if u want links in your table
+    tab_text = tab_text.replace(/<img[^>]*>/gi,"");                 // remove if u want images in your table
+    tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, "");    // reomves input params
+    // console.log(tab_text); // aktivate so see the result (press F12 in browser)
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE "); 
+
+     // if Internet Explorer
+    // if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+    //   frame.document.open("txt/html","replace");
+    //   frame.document.write(tab_text);
+    //   frame.document.close();
+    //   frame.focus(); 
+    //     var sa = frame.document.execCommand("SaveAs", true, "DataTableExport.xls");
+    // }  
+    // else // other browser not tested on IE 11
+        var sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+
+    return (sa);
   }
 
 }
