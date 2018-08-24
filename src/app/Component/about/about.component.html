@@ -13,3 +13,89 @@
     </div>
   </div>
 </div>
+
+<!-- mat-datepicker -->
+<button (click)="add()">Thêm</button><br>
+<div class="all">
+	<mat-form-field>
+		<input class="tdb" matInput [matDatepicker]="picker" readonly>
+		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker disabled="false"></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field>
+		<input class="tdb" matInput [matDatepicker]="picker1" readonly>
+		<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+		<mat-datepicker #picker1 disabled="false"></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field>
+		<input class="tdb" matInput [matDatepicker]="picker2" readonly>
+		<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+		<mat-datepicker #picker2 disabled="false"></mat-datepicker>
+	</mat-form-field>
+
+
+	<mat-form-field>
+		<input class="tdb" matInput [matDatepicker]="picker3" readonly>
+		<mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+		<mat-datepicker #picker3 disabled="false"></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field>
+		<input class="tdb" matInput [matDatepicker]="picker4" readonly>
+		<mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+		<mat-datepicker #picker4 disabled="false"></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field>
+		<input class="tdb" matInput [matDatepicker]="picker5" readonly>
+		<mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+		<mat-datepicker #picker5 disabled="false"></mat-datepicker>
+	</mat-form-field>
+
+	<div *ngIf="boolFunc" class="them">
+		<br>
+		<h1>New</h1>
+		<br>
+
+		<table>
+			<tbody>
+				<tr *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+					<td>
+						Plan
+					</td>
+					<td>
+						<select (change)="onChange($event,'Plan')">
+              <option >Choose options</option>
+              <option value="0">NA</option>
+              <option value="1">TBD</option>
+            </select>
+					</td>
+					
+					<ng-container *ngFor="let in of [0,1,2]; let id = index;">
+            <td>{{id+1}}
+            </td>
+            <td [class.Plan]="id == 0" 
+              [class.ISC]="id == 1" 
+              [class.IOT]="id == 2">
+							<mat-form-field>
+								<input class="tdb" (blur)="onBlur($event)" (focus)="onFocus($event)" matInput [matDatepicker]="picker" readonly>
+								<mat-datepicker-toggle matSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+								<mat-datepicker #picker disabled="false"></mat-datepicker>
+							</mat-form-field>
+					  </td>  
+					</ng-container>
+
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
