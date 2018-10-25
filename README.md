@@ -1,160 +1,61 @@
 # M.E.A.N-Stack
-  <ng-container [ngSwitch]="true">
-      <ng-container *ngSwitchCase="10">Code A</ng-container>
-      <ng-container *ngSwitchCase="2">Code B</ng-container>
-      <ng-container *ngSwitchCase="3">Code C</ng-container>
-  </ng-container>
+  import {Component} from '@angular/core';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from "@angular/material";
 
-  <div class="conainter-fluid">
-
-    <!-- <ng-container *ngIf="data.length > 10; else none"> -->
-
-      
-      <!-- start first-row -->
-      <div class="first-row">
-        <div class="row py-4 border">
-          <div class="col-sm-12">
-            <div class="text-center">Quated</div>
-          </div>
-        </div>
-        <!-- Initial -->
-        <div class="row">
-          <div class="col-sm-1 py-4 border">Initial</div>
-          <div class="col-sm-11">
-            <div class="row">
-              <ng-container *ngFor="let item of data; index as i;">
-                <div *ngIf="i < 6 && !data[i].single" #valueA class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                <div *ngIf="i < 6 && data[i].single" class="col-sm-6 py-4 border border-bottom-0"></div>
-              </ng-container>
-            </div>
-          </div>
-        </div>
-        {{ valueA }}aa
-        <!-- Actual -->
-        <div class="row">
-          <div class="col-sm-1 py-4 border">Actual</div>
-          <div class="col-sm-11">
-            <div class="row">
-              <ng-container *ngFor="let item of data; index as i;">
-                <div *ngIf="i < 6 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                <div *ngIf="i < 6 && data[i].single" class="col-sm-6 py-4 border border-bottom-0 border-top-0">
-                    <input type="text" class="form-control" id="a" name="password">
-                </div>
-              </ng-container>
-            </div>
-          </div>
-        </div>
-        <!-- Submittion -->
-        <div class="row">
-          <div class="col-sm-1 py-4 border">Submittion</div>
-          <div class="col-sm-11">
-            <div class="row">
-              <ng-container *ngFor="let item of data; index as i;">
-                <div *ngIf="i < 6 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                <div *ngIf="i < 6 && data[i].single" class="col-sm-6 py-4 border border-top-0"></div>
-              </ng-container>
-            </div>
-          </div>
-        </div>
-        <!-- end -->
-      </div>
-      <!-- end first-row -->
-      <div class="row border py-4"></div>
-      <!-- start second-row -->
-      <div class="second-row">
-        <div class="row py-4 border">
-          <div class="col-sm-12">
-            <div class="text-center">Quated</div>
-          </div>
-        </div>
-        <!-- Initial -->
-        <div class="row">
-          <div class="col-sm-1 py-4 border">Initial</div>
-          <div class="col-sm-11">
-            <div class="row">
-              <ng-container *ngFor="let item of data; index as i;">
-                  <div *ngIf="i > 5  && i < 10 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                  <div *ngIf="i > 5  && i < 10 && data[i].single" class="col-sm-4 py-4 border border-bottom-0"></div>
-              </ng-container>
-            </div>
-          </div>
-        </div>
-        <!-- Actual -->
-        <div class="row">
-          <div class="col-sm-1 py-4 border">Actual</div>
-          <div class="col-sm-11">
-            <div class="row">
-              <ng-container *ngFor="let item of data; index as i;">
-                  <div *ngIf="i > 5  && i < 10 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                  <div *ngIf="i > 5  && i < 10 && data[i].single" class="col-sm-4 py-4 border border-bottom-0 border-top-0">
-                      <input type="text" class="form-control" id="a" name="password">
-                  </div>
-              </ng-container>
-            </div>
-          </div>
-        </div>
-        <!-- Submittion -->
-        <div class="row">
-          <div class="col-sm-1 py-4 border">Submittion</div>
-          <div class="col-sm-11">
-            <div class="row">
-              <ng-container *ngFor="let item of data; index as i;">
-                  <div *ngIf="i > 5  && i < 10 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                  <div *ngIf="i > 5  && i < 10 && data[i].single" class="col-sm-4 py-4 border border-top-0"></div>
-              </ng-container>
-            </div>
-          </div>
-        </div>
-        <!-- end -->
-      </div>
-      <!-- end second-row -->
-      <div class="row border py-4"></div>
-      <!-- start third-row -->
-      <div class="third-row">
-        <div class="row py-4 border">
-            <div class="col-sm-12">
-              <div class="text-center">Quated</div>
-            </div>
-          </div>
-          <!-- Initial -->
-          <div class="row">
-            <div class="col-sm-1 py-4 border">Initial</div>
-            <div class="col-sm-11">
-              <div class="row">
-                <ng-container *ngFor="let item of data; index as i;">
-                  <div *ngIf="i > 9 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                </ng-container>
-              </div>
-            </div>
-          </div>
-          <!-- Actual -->
-          <div class="row">
-            <div class="col-sm-1 py-4 border">Actual</div>
-            <div class="col-sm-11">
-              <div class="row">
-                <ng-container *ngFor="let item of data; index as i;">
-                  <div *ngIf="i > 9 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                </ng-container>
-              </div>
-            </div>
-          </div>
-          <!-- Submittion -->
-          <div class="row">
-            <div class="col-sm-1 py-4 border">Submittion</div>
-            <div class="col-sm-11">
-              <div class="row">
-                <ng-container *ngFor="let item of data; index as i;">
-                  <div *ngIf="i > 9 && !data[i].single" class="col-sm-2 py-4 border">{{data[i].name}}</div>
-                </ng-container>
-              </div>
-            </div>
-          </div>
-          <!-- end -->
-      </div>
-      <!-- end second-row -->
+export class AppDateAdapter extends NativeDateAdapter {
+    
+    format(date: Date, displayFormat: Object): string {
+        const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        if (displayFormat === 'input') {
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            return `${day}-${MONTHS[month]}-${year}`;
+        } else {
+            return date.toDateString();
+        }
+    }
+}
 
 
-    <!-- </ng-container> -->
+export const APP_DATE_FORMATS =
+{
+    parse: {
+        dateInput: { month: 'short', year: 'numeric', day: 'numeric' },
+    },
+    display: {
+        dateInput: 'input',
+        monthYearLabel: { year: 'numeric', month: 'numeric' },
+        dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
+        monthYearA11yLabel: { year: 'numeric', month: 'long' },
+    }
+};
 
-  </div>
-https://www.ag-grid.com/javascript-grid-cell-styles/
+/** @title Datepicker input and change events */
+@Component({
+  selector: 'datepicker-events-example',
+  templateUrl: 'datepicker-events-example.html',
+  styleUrls: ['datepicker-events-example.css'],
+   providers: [
+        {
+            provide: DateAdapter, useClass: AppDateAdapter
+        },
+        {
+            provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
+        }
+    ]
+})
+export class DatepickerEventsExample {
+  events: string[] = [];
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    console.log(event.value);
+    this.events.push(`${type}: ${event.value}`);
+  }
+}
+
+
+/**  Copyright 2017 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license */
