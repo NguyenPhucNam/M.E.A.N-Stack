@@ -1,61 +1,40 @@
 # M.E.A.N-Stack
-  import {Component} from '@angular/core';
-import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from "@angular/material";
-
-export class AppDateAdapter extends NativeDateAdapter {
-    
-    format(date: Date, displayFormat: Object): string {
-        const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-        if (displayFormat === 'input') {
-            const day = date.getDate();
-            const month = date.getMonth() + 1;
-            const year = date.getFullYear();
-            return `${day}-${MONTHS[month]}-${year}`;
-        } else {
-            return date.toDateString();
-        }
+  mycontent: string;
+  mycontent1: string;
+  mycontent2: string;
+  flag: boolean = false;
+  
+  @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    if(this.flag) {
+      event.preventDefault();
     }
-}
-
-
-export const APP_DATE_FORMATS =
-{
-    parse: {
-        dateInput: { month: 'short', year: 'numeric', day: 'numeric' },
-    },
-    display: {
-        dateInput: 'input',
-        monthYearLabel: { year: 'numeric', month: 'numeric' },
-        dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
-        monthYearA11yLabel: { year: 'numeric', month: 'long' },
-    }
-};
-
-/** @title Datepicker input and change events */
-@Component({
-  selector: 'datepicker-events-example',
-  templateUrl: 'datepicker-events-example.html',
-  styleUrls: ['datepicker-events-example.css'],
-   providers: [
-        {
-            provide: DateAdapter, useClass: AppDateAdapter
-        },
-        {
-            provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
-        }
-    ]
-})
-export class DatepickerEventsExample {
-  events: string[] = [];
-
-  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    console.log(event.value);
-    this.events.push(`${type}: ${event.value}`);
   }
-}
 
+  @HostListener('paste', ['$event']) blockPaste(e: KeyboardEvent) {
+    let maxHeight = 0;
+    let mang = [];
+    let mang2 = [];
+    setTimeout(() => {
+      let legth = e.path[2].childElementCount;
+      for(let i = 0; i < legth; i++) {
+        maxHeight += e.path[2].childNodes[i].clientHeight;
+        if((maxHeight / 20) > 7) {
+          mang.push(e.path[2].childNodes[i].innerHTML);
+          this.mycontent1 = mang.join("<br />").toString().substr(0, (37 * 14));
+          this.flag = true;
+          break;
+        } else {
+          let data = e.path[2].childNodes[i].innerHTML.toString();
+          mang.push(data);
+        }
+      }
+    }, 100);
+  }
 
-/**  Copyright 2017 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
+  onChange($event: any, number: Number): void {
+    if(number == 1) {
+    this.mycontent = this.mycontent1;
+    } else if(number == 2) {
+    this.mycontent2 = this.mycontent1;
+    }
+  }
