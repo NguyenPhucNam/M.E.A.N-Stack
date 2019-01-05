@@ -10,3 +10,38 @@
     </div>
   </div>
 </div>
+
+<!-- mat-datepicker -->
+  ngAfterViewInit(): void {
+    this.mang = [];
+    this.time();
+  }
+
+  time() {
+    const inputs = document.querySelectorAll("div.ag-floating-filter-body div > input");
+    const nameFilters = document.getElementById('filters');
+    var textHeader = document.querySelectorAll("div.ag-header-container > div.ag-header-row:first-child > div.ag-header-cell");
+    for(let i = 0; i < inputs.length; i++) {
+      setInterval(() => {
+        if(inputs[i].value != "") {
+          var values = textHeader[i].getAttribute("col-id").toUpperCase();
+          inputs[i].setAttribute("style","background-color: green;");
+          if(!this.mang.includes(values)) {
+            this.mang.push(values);
+            nameFilters.innerHTML = this.mang.toString();
+          }
+        } else {
+          var values = textHeader[i].getAttribute("col-id").toUpperCase();
+          inputs[i].removeAttribute("style");
+          if(this.mang.includes(values)) {
+            this.mang.splice(this.mang.indexOf(values),1);
+            nameFilters.innerHTML = this.mang.toString();
+          }
+        }
+      }, 1000);
+    }
+  }
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
