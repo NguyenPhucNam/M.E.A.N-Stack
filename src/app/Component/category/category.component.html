@@ -1,5 +1,22 @@
-<app-navigation></app-navigation>
-<app-slider></app-slider>
-<p>
-  category works!
-</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let i of objectProducts" class="col-sm-3">
+      <div class="card">
+        <a class="thumnail" routerLink="/san-pham/chi-tiet/{{i._id}}">
+          <img class="card-img-top" src="{{ url+i.Url_clound+i.Img_Product }}" alt="{{ i.Product_Name }}">
+          <div class="card-body">
+            <p class="card-text">{{ i.Product_Name }}</p>
+            <p class="card-text">{{ i.Description }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <ul class="pagination">
+    <li><a href="/danh-muc?page=1">1</a></li>
+    <li><a href="/danh-muc?page=2">2</a></li>
+    <li><a href="/danh-muc?page=3">3</a></li>
+    <li><a href="/danh-muc?page=4">4</a></li>
+    <li><a href="/danh-muc?page=5">5</a></li>
+  </ul>
+</div>

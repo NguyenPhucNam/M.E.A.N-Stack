@@ -12,7 +12,7 @@ a.thumnail:hover {text-decoration: none; color: red;}
     overflow: hidden;
 }
 
-.table thead th {
+/* .table thead th {
     position: sticky;
     top: 0;
     vertical-align: bottom;
@@ -28,4 +28,4 @@ a.thumnail:hover {text-decoration: none; color: red;}
     width: calc(100% - 17px);
     position: absolute;
     top: 0;
-}
+} */

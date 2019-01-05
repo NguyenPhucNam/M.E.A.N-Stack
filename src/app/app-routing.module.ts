@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NavigationComponent } from './Component/navigation/navigation.component';
 import { HomepageComponent } from './Component/homepage/homepage.component';
-import { SliderComponent } from './Component/slider/slider.component';
 import { CategoryComponent } from './Component/category/category.component';
 import { AboutComponent } from './Component/about/about.component';
 import { ContactComponent } from './Component/contact/contact.component';
@@ -19,6 +18,7 @@ import { ErrorComponent } from './Component/error/error.component';
 import { AddPageComponent } from './Component/add-page/add-page.component';
 import { EditPageComponent } from './Component/edit-page/edit-page.component';
 import { AuthGuard } from './Component/auth/auth.guard';
+import { CommonComponent } from './Component/common/common.component';
 
 const routesConfig: Routes = [
     { path: "", component: HomepageComponent },
@@ -38,10 +38,8 @@ const routesConfig: Routes = [
 
 @NgModule({
     declarations: [
-        NavigationComponent,
         HomepageComponent,
         CategoryComponent,
-        SliderComponent,
         AboutComponent,
         ContactComponent,
         DetailsComponent,
@@ -51,13 +49,16 @@ const routesConfig: Routes = [
         SellerPageComponent,
         AddPageComponent,
         EditPageComponent,
-        ErrorComponent
+        ErrorComponent,
+        CommonComponent
     ],
     imports: [
         BrowserModule,
         HttpModule,
+        HttpClientModule,
         FormsModule,
         CommonModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(routesConfig)
     ],
     exports: [RouterModule]

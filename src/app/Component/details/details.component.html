@@ -1,6 +1,3 @@
-<app-navigation></app-navigation>
-<app-slider></app-slider>
-<br>
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
@@ -30,11 +27,11 @@
       <div class="text-muted input-group mb-3">
         Số lượng:&nbsp;
         <div class="input-group-append">
-          <button class="btn btn-success" (click)="myClick(-1)">-</button>  
+          <button class="btn btn-success" (click)="myClick(-1)">-</button>
         </div>
         <input [(ngModel)]="numberIndex" class="form-control" value="{{ numberIndex }}"/>
         <div class="input-group-append">
-          <button class="btn btn-success" (click)="myClick(1)">+</button>  
+          <button class="btn btn-success" (click)="myClick(1)">+</button>
         </div>
       </div>
       <p>{{ detail['Description'] }}</p>

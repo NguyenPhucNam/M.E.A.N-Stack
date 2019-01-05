@@ -1,0 +1,11 @@
+<div class="demo">
+  <a class="thumnail" routerLink="{{ isURL }}">
+    <div class="card-header">
+      <ng-content select=".demo-card-header"></ng-content>
+    </div>
+    <div class="card-body">
+      <ng-content select=".demo-card-body"></ng-content>
+    </div>
+  </a>
+</div>
+<button type="button" (click)="increValue();" class="btn btn-primary" name="button">Click</button>
