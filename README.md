@@ -13,3 +13,4 @@
     this.mycontent = unescape(doc.querySelector("body").innerHTML).trim();
     console.log(unescape(doc.querySelector("body").innerText).toString().length);
  https://grokonez.com/frontend/angular/angular-4-uploadget-images-tofrom-spring-boot-server
+ https://developers.google.com/web/updates/2016/10/capture-stream
