@@ -16,3 +16,4 @@
  https://developers.google.com/web/updates/2016/10/capture-stream
 https://github.com/feross/simple-peer
 https://arteegee.herokuapp.com/
+https://stackoverflow.com/questions/9267899/arraybuffer-to-base64-encoded-string
